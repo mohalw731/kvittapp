@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kvittapp - Företag</title>
+
+    <script src="https://kit.fontawesome.com/450e23c556.js" crossorigin="anonymous"></script>
+  <link rel="icon" href="favicon.ico"><link href="style.css" rel="stylesheet"></head>
+  <link rel="stylesheet" href="style2.css">
+  <body
+    x-data="{ page: 'home', 'darkMode': true, 'stickyMenu': false, 'navigationOpen': false, 'scrollTop': false }"
+    x-init="
+         darkMode = JSON.parse(localStorage.getItem('darkMode'));
+         $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
+    :class="{'b eh': darkMode === true}"
+  >
+    <!-- ===== Header Start ===== -->
+    <header
+  class="g s r vd ya cj"
+  :class="{ 'hh sm _k dj bl ll' : stickyMenu }"
+  @scroll.window="stickyMenu = (window.pageYOffset > 20) ? true : false"
+>
+  <div class="bb ze ki xn 2xl:ud-px-0 oo wf yf i">
+    <div class="vd to/4 tc wf yf">
+      <a href="index.html">
+        <img class="om" src="images/Kvittapp Logo + Text - SVART.png" width="185" alt="Logo Light" />
+        <img class="xc nm" src="images/Kvittapp Logo + Text - VIT.png" width="185" alt="Logo Dark" />
+      </a>
+
+      <!-- Hamburger Toggle BTN -->
+      <button class="po rc" @click="navigationOpen = !navigationOpen">
+        <span class="rc i pf re pd">
+          <span class="du-block h q vd yc">
+            <span class="rc i r s eh um tg te rd eb ml jl dl" :class="{ 'ue el': !navigationOpen }"></span>
+            <span class="rc i r s eh um tg te rd eb ml jl fl" :class="{ 'ue qr': !navigationOpen }"></span>
+            <span class="rc i r s eh um tg te rd eb ml jl gl" :class="{ 'ue hl': !navigationOpen }"></span>
+          </span>
+          <span class="du-block h q vd yc lf">
+            <span class="rc eh um tg ml jl el h na r ve yc" :class="{ 'sd dl': !navigationOpen }"></span>
+            <span class="rc eh um tg ml jl qr h s pa vd rd" :class="{ 'sd rr': !navigationOpen }"></span>
+          </span>
+        </span>
+      </button>
+      <!-- Hamburger Toggle BTN -->
+    </div>
+
+    <div
+      class="vd wo/4 sd qo f ho oo wf yf"
+      :class="{ 'd hh rm sr td ud qg ug jc yh': navigationOpen }"
+    >
+      <nav>
+        <ul class="tc _o sf yo cg ep">
+          <li><a href="main1.html" class="xl" :class="{ 'mk': page === 'home' }">Företag</a></li>
+          <li><a href="index.html" class="xl">Hem</a></li>
+        </ul>
+      </nav>
+
+      <div class="tc wf ig pb no">
+        <div class="pc h io pa ra" :class="navigationOpen ? '!-ud-visible' : 'd'">
+          <label class="rc ab i">
+            <input type="checkbox" :value="darkMode" @change="darkMode = !darkMode" class="pf vd yc uk h r za ab" />
+            <!-- Icon Sun -->
+            <svg :class="{ 'wn' : page === 'home', 'xh' : page === 'home' && stickyMenu }" class="th om" width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12.0908 18.6363C10.3549 18.6363 8.69 17.9467 7.46249 16.7192C6.23497 15.4916 5.54537 13.8268 5.54537 12.0908C5.54537 10.3549 6.23497 8.69 7.46249 7.46249C8.69 6.23497 10.3549 5.54537 12.0908 5.54537C13.8268 5.54537 15.4916 6.23497 16.7192 7.46249C17.9467 8.69 18.6363 10.3549 18.6363 12.0908C18.6363 13.8268 17.9467 15.4916 16.7192 16.7192C15.4916 17.9467 13.8268 18.6363 12.0908 18.6363ZM12.0908 16.4545C13.2481 16.4545 14.358 15.9947 15.1764 15.1764C15.9947 14.358 16.4545 13.2481 16.4545 12.0908C16.4545 10.9335 15.9947 9.8236 15.1764 9.00526C14.358 8.18692 13.2481 7.72718 12.0908 7.72718C10.9335 7.72718 9.8236 8.18692 9.00526 9.00526C8.18692 9.8236 7.72718 10.9335 7.72718 12.0908C7.72718 13.2481 8.18692 14.358 9.00526 15.1764C9.8236 15.9947 10.9335 16.4545 12.0908 16.4545ZM10.9999 0.0908203H13.1817V3.36355H10.9999V0.0908203ZM10.9999 20.8181H13.1817V24.0908H10.9999V20.8181ZM2.83446 4.377L4.377 2.83446L6.69082 5.14828L5.14828 6.69082L2.83446 4.37809V4.377ZM17.4908 19.0334L19.0334 17.4908L21.3472 19.8046L19.8046 21.3472L17.4908 19.0334ZM19.8046 2.83337L21.3472 4.377L19.0334 6.69082L17.4908 5.14828L19.8046 2.83446V2.83337ZM5.14828 17.4908L6.69082 19.0334L4.377 21.3472L2.83446 19.8046L5.14828 17.4908ZM24.0908 10.9999V13.1817H20.8181V10.9999H24.0908ZM3.36355 10.9999V13.1817H0.0908203V10.9999H3.36355Z" fill=""/>
+            </svg>
+            <!-- Icon Sun -->
+            <img class="xc nm" src="images/icon-moon.svg" alt="Moon" />
+          </label>
+        </div>
+
+        <a href="signin.html" :class="{ 'nk yl' : page === 'home', 'ok' : page === 'home' && stickyMenu }" class="ek pk xl">Logga in</a>
+        <a href="signup.html" :class="{ 'hh/[0.15]' : page === 'home', 'sh' : page === 'home' && stickyMenu }" class="lk gh dk rg tc wf xf _l gi hi">registera</a>
+      </div>
+    </div>
+  </div>
+
+
+  <style>
+    /* Optional CSS styles for demonstration purposes */
+    .center {
+      display: block;
+      margin: 0 auto;
+    }
+    
+    /* Add this CSS to hide additional pricing items by default */
+    .additional-item {
+      display: none;
+    }
+    
+    /* Add this CSS to show additional pricing items when the 'show-more' class is added */
+    .show-more .additional-item {
+      display: block;
+    }
+  </style>
+</header>
+
+    <!-- ===== Header End ===== -->
+
+    <main>
+      <!-- ===== Hero Start ===== -->
+      <section class="gj do ir hj sp jr i pg">
+        <!-- Hero Images -->
+        <div class="xc fn zd/2 2xl:ud-w-187.5 bd 2xl:ud-h-171.5 h q r">
+          <img src="images/shape-01.svg" alt="shape" class="xc 2xl:ud-block h t -ud-left-[10%] ua" />
+          <img src="images/shape-02.svg" alt="shape" class="xc 2xl:ud-block h u p va" />
+          <img src="images/shape-03.svg" alt="shape" class="xc 2xl:ud-block h v w va" />
+          <img src="images/shape-04.svg" alt="shape" class="h q r" />
+          <img src="images/hero.png" alt="Woman" class="h q r ua" />
+        </div>
+
+        <!-- Hero Content -->
+        <div class="bb ze ki xn 2xl:ud-px-0">
+          <div class="tc _o">
+            <div class="animate_left jn/2">
+              <h1 class="fk vj zp or kk wm wb">Hantera Kvitton & Returer snabbare än någonsin</h1>
+              <p class="fq">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fringilla magna mauris. Nulla fermentum viverra sem eu rhoncus consequat varius nisi quis, posuere magna.
+              </p>
+
+              <div class="tc tf yo zf mb">
+                <a href="#" class="ek jk lk gh gi hi rg ml il vc _d _l"
+                  >Börja idag</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ===== Hero End ===== -->
+
+      <!-- ===== Small Features Start ===== -->
+      <section id="features">
+        <div class="bb ze ki yn 2xl:ud-px-12.5">
+          <div class="tc uf zo xf ap zf bp mq">
+            <!-- Small Features Item -->
+            <div class="animate_top kn to/3 tc cg oq">
+              <div class="tc wf xf cf ae cd rg mh">
+                <img src="images/icon-01.svg" alt="Icon" />
+              </div>
+              <div>
+                <h4 class="ek yj go kk wm xb">24/7 Support</h4>
+                <p>24/7 support via Telefon och email</p>
+              </div>
+            </div>
+
+            <!-- Small Features Item -->
+            <div class="animate_top kn to/3 tc cg oq">
+              <div class="tc wf xf cf ae cd rg nh">
+                <img src="images/icon-02.svg" alt="Icon" />
+              </div>
+              <div>
+                <h4 class="ek yj go kk wm xb">Miljö Vänligt</h4>
+                <p>
+                </p>
+              </div>
+            </div>
+
+            <!-- Small Features Item -->
+            <div class="animate_top kn to/3 tc cg oq">
+              <div class="tc wf xf cf ae cd rg oh">
+                <img src="images/icon-03.svg" alt="Icon" />
+              </div>
+              <div>
+                <h4 class="ek yj go kk wm xb">Företag</h4>
+                <p>Lorem ipsum dolor sit amet conse adipiscing elit.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ===== Small Features End ===== -->
+
+      <!-- ===== About Start ===== -->
+      <section class="ji gp uq 2xl:ud-py-35 pg">
+        <div class="bb ze ki xn wq">
+          <div class="tc wf gg qq">
+            <!-- About Images -->
+            <div class="animate_left xc gn gg jn/2 i">
+              <div>
+                <img src="images/shape-05.svg" alt="Shape" class="h -ud-left-5 x" />
+                <img src="images/about-01 1.png" alt="About" class="ib" />
+                <img src="images/about-02.png" alt="About" />
+              </div>
+              <div>
+                <img src="images/shape-06.svg" alt="Shape" />
+                <img src="images/about-03.png" alt="About" class="ob gb" />
+                <img src="images/shape-07.svg" alt="Shape" class="bb" />
+              </div>
+            </div>
+
+            <!-- About Content -->
+            <div class="animate_right jn/2">
+              <h4 class="ek yj mk gb">Varför ska företag välja Kvittapp?</h4>
+              <h2 class="fk vj zp pr kk wm qb">Snabba & Smidiga lösningar med några knapptryck.</h2>
+                <p class="uo">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto fuga facilis vitae suscipit quae vel, quibusdam dolorem? Expedita ea corporis porro error dolorem numquam enim voluptatibus aliquid unde? Quos consectetur suscipit consequatur tempora officiis qui aut perspiciatis magni laborum harum, error beatae, repellendus maxime a.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ===== About End ===== -->
+
+      <!-- ===== Team Start ===== -->
+      <section class="i pg ji gp uq">
+        <!-- Bg Shapes -->
+        <span class="rc h s r vd fd/5 fh rm"></span>
+        <img src="images/shape-08.svg" alt="Shape Bg" class="h q r" />
+        <img src="images/shape-09.svg" alt="Shape" class="of h y z/2" />
+        <img src="images/shape-10.svg" alt="Shape" class="h _ aa" />
+        <img src="images/shape-11.svg" alt="Shape" class="of h m ba" />
+
+        <!-- Section Title Start -->
+        <div
+          x-data="{ sectionTitle: `Vilka är bakom Kvittapp`, sectionTitleText: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor eros. Donec vitae tortor lacus. Phasellus aliquam ante in maximus.`}"
+        >
+          <div class="animate_top bb ze rj ki xn vq">
+    <h2
+            x-text="sectionTitle"
+            class="fk vj pr kk wm on/5 gq/2 bb _b"
+    >
+    </h2>
+    <p class="bb on/5 wo/5 hq" x-text="sectionTitleText"></p>
+</div>
+
+
+        </div>
+        <!-- Section Title End -->
+
+        <div class="bb ze i va ki xn xq jb jo">
+          <div class="wc qf pn xo gg cp">
+            <!-- Team Item -->
+            <div class="animate_top rj">
+              <div class="c i pg z-1">
+                <img class="vd" src="images/team-02.png" alt="Team" />
+
+                <div class="ef im nl il">
+                  <span class="h -ud-left-5 -ud-bottom-21 rc de gd gh if wa"></span>
+                  <span class="h s p rc vd hd mh va"></span>
+                  <div class="h s p vd ij jj xa">
+                  
+                  </div>
+                </div>
+              </div>
+
+              <h4 class="yj go kk wm ob zb">Antonius Mekhael </h4>
+              <p>CTO</p>
+            </div>
+
+            <!-- Team Item -->
+            <div class="animate_top rj">
+              <div class="c i pg z-1">
+                <img class="vd" src="images/team-02.png" alt="Team" />
+
+                <div class="ef im nl il">
+                  <span class="h -ud-left-5 -ud-bottom-21 rc de gd gh if wa"></span>
+                  <span class="h s p rc vd hd mh va"></span>
+                  <div class="h s p vd ij jj xa">
+                  
+                  </div>
+                </div>
+              </div>
+
+              <h4 class="yj go kk wm ob zb">Mostafa Jalal </h4>
+              <p>CEO</p>
+            </div>
+
+            <!-- Team Item -->
+            <div class="animate_top rj">
+              <div class="c i pg z-1">
+                <img class="vd" src="images/team-02.png" alt="Team" />
+
+                <div class="ef im nl il">
+                  <span class="h -ud-left-5 -ud-bottom-21 rc de gd gh if wa"></span>
+                  <span class="h s p rc vd hd mh va"></span>
+                  <div class="h s p vd ij jj xa">
+                   
+                  </div>
+                </div>
+              </div>
+
+              <h4 class="yj go kk wm ob zb">Ahmed Shanshal              </h4>
+              <p>COO</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ===== Team End ===== -->
+
+      <!-- ===== Services Start ===== -->
+      <section class="lj tp kr">
+        <!-- Section Title Start -->
+        <div
+          x-data="{ sectionTitle: `Vi erbjuder följande tjänster
+            `, sectionTitleText: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor eros. Donec vitae tortor lacus. Phasellus aliquam ante in maximus.`}"
+        >
+          <div class="animate_top bb ze rj ki xn vq">
+    <h2
+            x-text="sectionTitle"
+            class="fk vj pr kk wm on/5 gq/2 bb _b"
+    >
+    </h2>
+    <p class="bb on/5 wo/5 hq" x-text="sectionTitleText"></p>
+</div>
+
+
+        </div>
+        <!-- Section Title End -->
+<a href="Datalagring.html">
+        <div class="bb ze ki xn yq mb en">
+          <div class="wc qf pn xo ng">
+            <!-- Service Item -->
+            <div class="animate_top sg oi pi zq ml il am cn _m">
+              <img src="images/icon-04.svg" alt="Icon" />
+              <h4 class="ek zj kk wm nb _b">Datalagring</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.</p>
+            </div>
+</a>
+
+<a href="returhatntering.html">
+            <!-- Service Item -->
+            <div class="animate_top sg oi pi zq ml il am cn _m">
+              <img src="images/icon-05.svg" alt="Icon" />
+              <h4 class="ek zj kk wm nb _b">Returhantering</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.</p>
+            </div>
+</a>
+
+<a href="insikterinomdata.html">
+            <!-- Service Item -->
+            <div class="animate_top sg oi pi zq ml il am cn _m">
+              <img src="images/icon-06.svg" alt="Icon" />
+              <h4 class="ek zj kk wm nb _b">Insikter genom data              </h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.</p>
+            </div>
+</a>
+          </div>
+        </div>
+      </section>
+      <!-- ===== Services End ===== -->
+
+      <section>
+        <div class="container">
+  
+          <h2 class="h2disc">Överigt</h2>
+        
+          <div class="accordion">
+            <div class="accordion-item">
+              <a>Miljö</a>
+              <div class="content">
+                <p>Företag behöver anpassa sig till regleringar och krav sätts utifrån miljömål. Vi underlättar detta genom att minska pappersanvändningen och digitaliserar företagen yterliggare.
+                </p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <a>Returer</a>
+              <div class="content">
+                <p>Vi förbättrar returprocessen genom att låta kunden skapa en retur i applikationen som  kassören behöver endast godkänna vid överlämning av varan. </p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <a>Arkivering</a>
+              <div class="content">
+                <p>Enligt arkiveringlagen ska företag spara kvitton i 7 år i samma utgivningformat. Genom Kvittapp kan företag skicka kvitton digitalt till kunden och spara dem i vår databas. 
+                </p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <a>Data</a>
+              <div class="content">
+                <p>Få tillgång till data på dina kunder som handlar hos dig och vilka produkter de köper. Du får enkel statistik över vilken kund.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <a>Marknad</a>
+              <div class="content">
+                <p>Genom att marknadsföra genom vår tjänst kan företag enkelt lägga ut reklamblad i form av kampanjer eller uppdateringar för att marknadsföra sig utåt till användarna.</p>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        </section>
+
+
+
+<!-- ===== Pricing Table Start ===== -->
+<section class="i pg fh rm ji gp uq">
+  <!-- Bg Shapes -->
+  <img src="images/shape-06.svg" alt="Shape" class="h aa y" />
+  <img src="images/shape-03.svg" alt="Shape" class="h ca u" />
+  <img src="images/shape-07.svg" alt="Shape" class="h w da ee" />
+  <img src="images/shape-12.svg" alt="Shape" class="h p s" />
+  <img src="images/shape-13.svg" alt="Shape" class="h r q" />
+
+  <!-- Section Title Start -->
+  <div class="animate_top bb ze rj ki xn vq">
+    <h2 class="fk vj pr kk wm on/5 gq/2 bb _b">Vi erbjuder fantastiska och prisvärda premiumpriser.</h2>
+    <p class="bb on/5 wo/5 hq">Lorem ipsum dolor sit amor sit amet, consecteturet, consecor sit amet, consecteturtetur adipiscing elit. In convallis tortor.</p>
+  </div>
+  <!-- Section Title End -->
+
+
+
+  <!-- Pricing Table -->
+  <div class="bb ze i va ki xn yq bc">
+    <div class="wc qf pn xo jg">
+      <!-- Pricing Item -->
+      <div class="animate_top rj sg hh sm vk xm hi nj oj">
+        <h4 class="wj kk wm fb">Mini paket</h4>
+        <div class="tc wf xf kg cc">
+          <h2 class="fk _j kk wm">89kr</h2>
+          <span class="sc ak kk wm">/månad</span>
+        </div>
+        <p class="ur dc"></p>
+        <a href="#" class="ek rg lk ml il gi ri gh sl">KÖP</a>
+        <ul class="tc sf bg ob fb">
+          <li>5000 kvitton</li>
+          <li>10 Användare</li>
+          <li>Öppet Köp</li>
+        </ul>
+      </div>
+
+      <!-- Pricing Item -->
+      <div class="animate_top rj sg hh sm vk xm hi nj oj">
+        <h4 class="wj kk wm fb">Standardpaket</h4>
+        <div class="tc wf xf kg cc">
+          <h2 class="fk _j kk wm">289kr</h2>
+          <span class="sc ak kk wm">/månad</span>
+        </div>
+        <p class="ur dc"></p>
+        <a href="#" class="ek rg lk ml il gi ri mh tl">KÖP</a>
+        <ul class="tc sf bg ob fb">
+          <li>20 000</li>
+          <li>200 Användare</li>
+          <li>Öppet Köp</li>
+        </ul>
+        </div>
+        
+      <!-- Pricing Item -->
+      <div class="animate_top rj sg hh sm vk xm hi nj oj">
+        <h4 class="wj kk wm fb">Storapaket</h4>
+        <div class="tc wf xf kg cc">
+          <h2 class="fk _j kk wm">689kr</h2>
+          <span class="sc ak kk wm">/månad</span>
+        </div>
+        <p class="ur dc"></p>
+        <a href="#" class="ek rg lk ml il gi ri gh sl">KÖP</a>
+        <ul class="tc sf bg ob fb">
+          <li>100 000</li>
+          <li>1000 användare</li>
+          <li>Öppet Köp</li>
+        </ul>
+        </div>
+      
+  </div>
+
+
+</section>
+<section id="Contact">
+        <div class="i va bb ye ki xn wq jb mo">
+          <div class="tc uf sn tf rn un zf xl:gap-10">
+            <div class="animate_top w-full mn/5 to/3 vk sg hh sm yh rq i pg">
+              <!-- Bg Shapes -->
+              <img src="images/shape-03.svg" alt="Shape" class="h la x wd" />
+              <img src="images/shape-06.svg" alt="Shape" class="h la ma ne kf" />
+
+              <div class="fb">
+                <h4 class="wj kk wm cc">Email Address</h4>
+                <p><a href="#">support@Kvittapp.se</a></p>
+              </div>
+              <div class="fb">
+                <h4 class="wj kk wm cc">Plats</h4>
+                <p>Kungsgatan 5, 632 20 Eskilstuna.</p>
+              </div>
+              <div class="fb">
+                <h4 class="wj kk wm cc">Telefon</h4>
+                <p><a href="#">+46 123 5678 891</a></p>
+              </div>
+
+            </div>
+            <div class="animate_top w-full nn/5 vo/3 vk sg hh sm yh tq">
+              <form action="#" method="POST">
+                <div class="tc sf yo ap zf ep qb">
+                  <div class="vd to/2">
+                    <label class="rc ac" for="fullname">Fullständigt namn.
+                    </label>
+                    <input
+                      type="text"
+                      name="fullname"
+                      id="fullname"
+                      placeholder="Devid Wonder"
+                      class="vd ph sg zk xm _g ch pm hm dm dn em pl/50 xi mi"
+                    />
+                  </div>
+
+                  <div class="vd to/2">
+                    <label class="rc ac" for="email">Email address</label>
+                    <input
+                      type="email"
+                      name="email"
+                      id="email"
+                      placeholder="example@gmail.com"
+                      class="vd ph sg zk xm _g ch pm hm dm dn em pl/50 xi mi"
+                    />
+                  </div>
+                </div>
+
+                <div class="tc sf yo ap zf ep qb">
+                  <div class="vd to/2">
+                    <label class="rc ac" for="phone">Telefon Nummer</label>
+                    <input
+                      type="text"
+                      name="phone"
+                      id="phone"
+                      placeholder="+46 3342 3432"
+                      class="vd ph sg zk xm _g ch pm hm dm dn em pl/50 xi mi"
+                    />
+                  </div>
+
+                  <div class="vd to/2">
+                    <label class="rc ac" for="subject">Ämne</label>
+                    <input
+                      type="text"
+                      for="subject"
+                      id="subject"
+                      placeholder="Kvitto hantering"
+                      class="vd ph sg zk xm _g ch pm hm dm dn em pl/50 xi mi"
+                    />
+                  </div>
+                </div>
+
+                <div class="fb">
+                  <label class="rc ac" for="message">Meddelande</label>
+                  <textarea
+                    placeholder="Meddelande"
+                    rows="4"
+                    name="message"
+                    id="message"
+                    class="vd ph sg zk xm _g ch pm hm dm dn em pl/50 ci"
+                  ></textarea>
+                </div>
+
+                <div class="tc xf">
+                  <button class="vc rg lk gh ml il hi gi _l">Skicka</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ===== Contact End ===== -->
+
+      
+    </main>
+    <!-- ===== Footer Start ===== -->
+    <footer>
+      <div class="bb ze ki xn 2xl:ud-px-0">
+        <!-- Footer Top -->
+        <div class="ji gp">
+          <div class="tc uf ap gg fp">
+            <div class="animate_top zd/2 to/4">
+              <a href="index.html">
+                <img src="images/Kvittapp Logo + Text - SVART.png" width="185" alt="Logo" class="om" />
+                <img src="images/Kvittapp Logo + Text - VIT.png" width="185" alt="Logo" class="xc nm" />
+              </a>
+    
+          
+    
+            </div>
+    </section>
+            <div class="vd ro tc sf rn un gg vn">
+              <div class="animate_top">
+                <h4 class="kk wm tj ec">Snabba Länkar</h4>
+                <ul>
+                  <li><a href="#" class="sc xl vb">Hem</a></li>
+                  <li><a href="#" class="sc xl vb">Ladda ned Kvittapp</a></li>
+                  <li><a href="#" class="sc xl vb">Paket</a></li>
+                </ul>
+              </div>
+    
+            
+    
+              <div class="animate_top">
+                <h4 class="kk wm tj ec">Support</h4>
+    
+                <ul>
+                  <li><a href="#" class="sc xl vb">Om Oss</a></li>
+                  <li><a href="#" class="sc xl vb">Linked-in</a></li>
+                  <li><a href="#" class="sc xl vb">Contact Us</a></li>
+                </ul>
+              </div>
+    
+              <div class="animate_top">
+                <h4 class="kk wm tj ec">Nyheter</h4>
+                <p class="ac qe">Prenumerera för att få framtida uppdateringar. </p>
+    
+                <form action="" method="POST">
+                  <div class="i">
+                    <input
+                      type="text"
+                      placeholder="Email address"
+                      class="vd sm _g ch pm vk xm rg gm dm dn gi mi"
+                    />
+    
+                    <button class="h q fi">
+                      <svg class="th vm ul" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_48_1487)">
+                          <path
+                            d="M3.1175 1.17318L18.5025 9.63484C18.5678 9.67081 18.6223 9.72365 18.6602 9.78786C18.6982 9.85206 18.7182 9.92527 18.7182 9.99984C18.7182 10.0744 18.6982 10.1476 18.6602 10.2118C18.6223 10.276 18.5678 10.3289 18.5025 10.3648L3.1175 18.8265C3.05406 18.8614 2.98262 18.8792 2.91023 18.8781C2.83783 18.8769 2.76698 18.857 2.70465 18.8201C2.64232 18.7833 2.59066 18.7308 2.55478 18.6679C2.51889 18.6051 2.50001 18.5339 2.5 18.4615V1.53818C2.50001 1.46577 2.51889 1.39462 2.55478 1.33174C2.59066 1.26885 2.64232 1.2164 2.70465 1.17956C2.76698 1.14272 2.83783 1.12275 2.91023 1.12163C2.98262 1.12051 3.05406 1.13828 3.1175 1.17318ZM4.16667 10.8332V16.3473L15.7083 9.99984L4.16667 3.65234V9.16651H8.33333V10.8332H4.16667Z"
+                            fill=""
+                          />
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_48_1487">
+                            <rect width="20" height="20" fill="white" />
+                          </clipPath>
+                        </defs>
+                      </svg>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Footer Top -->
+    
+        <!-- Footer Bottom -->
+        <div class="bh ch pm tc uf sf yo wf xf ap cg fp bj">
+          <div class="animate_top">
+            <ul class="tc wf gg">
+              <li><a href="#" class="xl">Privacy Policy</a></li>
+              <li><a href="#" class="xl">Support</a></li>
+            </ul>
+          </div>
+    
+          <div class="animate_top">
+            <p>&copy; 2023 Kvittapp. All rights reserved</p>
+          </div>
+        </div>
+        <!-- Footer Bottom -->
+      </div>
+    </footer>
+
+    <!-- ===== Footer End ===== -->
+
+    <!-- ====== Back To Top Start ===== -->
+    <button
+  class="xc wf xf ie ld vg sr gh tr g sa ta _a"
+  @click="window.scrollTo({top: 0, behavior: 'smooth'})"
+  @scroll.window="scrollTop = (window.pageYOffset > 50) ? true : false"
+  :class="{ 'uc' : scrollTop }"
+>
+  <svg class="uh se qd" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+    <path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z" />
+  </svg>
+</button>
+
+    <!-- ====== Back To Top End ===== -->
+
+
+    <script src='https://code.jquery.com/jquery-3.2.1.min.js'></script>
+    <script  src="function.js"></script>
+    
+
+  <script defer src="bundle.js"></script></body>
+</html>
